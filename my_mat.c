@@ -40,6 +40,7 @@ bool FindShortestPath(int s,int d){
 void PrintShortestPath(int s,int d) {
     if(s==d){
         printf("%d\n",-1);
+        return;
     }
    int dist[ROWS][COLS];
     for (int i = 0; i < ROWS; i++) {
