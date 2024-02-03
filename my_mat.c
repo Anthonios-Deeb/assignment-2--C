@@ -15,6 +15,9 @@ void enterValuesForMatrix(){
 }
 
 bool FindShortestPath(int s,int d){
+    if(s==d)
+        return false;
+
     int dist[ROWS][COLS];
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
@@ -35,12 +38,16 @@ bool FindShortestPath(int s,int d){
 }
 
 void PrintShortestPath(int s,int d) {
+    if(s==d){
+        printf("%d\n",-1);
+    }
    int dist[ROWS][COLS];
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             dist[i][j] = mat[i][j];
         }
     }
+
     for (int k = 0; k < ROWS; k++) {
         for (int x = 0; x < COLS; x++) {
             for (int y = 0; y < ROWS; y++) {
