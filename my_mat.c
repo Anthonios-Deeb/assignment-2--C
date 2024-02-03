@@ -14,7 +14,7 @@ void enterValuesForMatrix(){
     }
 }
 
-void FindShortestPath(int s,int d){
+bool FindShortestPath(int s,int d){
     int dist[ROWS][COLS];
 
     for (int i = 0; i < ROWS; i++) {
@@ -24,14 +24,15 @@ void FindShortestPath(int s,int d){
     }
     
     for (int k = 0; k < ROWS; k++) {
-        for (int i = 0; i < COLS; i++) {
-            for (int j = 0; j < ROWS; j++) {
-                if (dist[i][k] + dist[k][j] <= dist[i][j]) {
-                    dist[i][j] = dist[i][k] + dist[k][j];
+        for (int x = 0; x < COLS; x++) {
+            for (int y = 0; y < ROWS; y++) {
+                if (dist[x][k] + dist[k][y] < dist[x][y]) {
+                    dist[x][y] = dist[x][k] + dist[k][y];
                 }
             }
         }
     }
+
 
     return dist[s][d]!=0;
 }
