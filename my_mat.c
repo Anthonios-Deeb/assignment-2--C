@@ -7,17 +7,16 @@
 int mat[ROWS][COLS];
 
 void enterValuesForMatrix(){
-    printf("Enter values for the 10x10 matrix:\n");
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
-            printf("Enter value for mat[%d][%d]: ", i, j);
             scanf("%d", &mat[i][j]);
         }
     }
 }
 
-bool FindShortestPath(int s,int d){
+void FindShortestPath(int s,int d){
     int dist[ROWS][COLS];
+
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             dist[i][j] = mat[i][j];
@@ -27,7 +26,7 @@ bool FindShortestPath(int s,int d){
     for (int k = 0; k < ROWS; k++) {
         for (int i = 0; i < COLS; i++) {
             for (int j = 0; j < ROWS; j++) {
-                if (dist[i][k] + dist[k][j] < dist[i][j]) {
+                if (dist[i][k] + dist[k][j] <= dist[i][j]) {
                     dist[i][j] = dist[i][k] + dist[k][j];
                 }
             }
@@ -39,11 +38,11 @@ bool FindShortestPath(int s,int d){
 
 void printPath(int path[ROWS][COLS], int i, int j) {
     if (path[i][j] == -1) {
-        printf("%d ", -1);
+        printf("%d\n", -1);
         return;
     }
     printPath(path, i, path[i][j]);
-    printf("%d ", j);
+    printf("%d\n", j);
 }
 
 void PrintShortestPath(int s,int d) {
