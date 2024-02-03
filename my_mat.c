@@ -16,23 +16,20 @@ void enterValuesForMatrix(){
 
 bool FindShortestPath(int s,int d){
     int dist[ROWS][COLS];
-
     for (int i = 0; i < ROWS; i++) {
         for (int j = 0; j < COLS; j++) {
             dist[i][j] = mat[i][j];
         }
     }
-    
     for (int k = 0; k < ROWS; k++) {
         for (int x = 0; x < COLS; x++) {
             for (int y = 0; y < ROWS; y++) {
-                if (dist[x][k] + dist[k][y] < dist[x][y]) {
+                if (dist[x][k] != 0 && dist[k][y] != 0 && (dist[x][y] == 0 || dist[x][k] + dist[k][y] < dist[x][y])) {
                     dist[x][y] = dist[x][k] + dist[k][y];
                 }
             }
         }
     }
-
 
     return dist[s][d]!=0;
 }
