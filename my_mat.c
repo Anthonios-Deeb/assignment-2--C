@@ -50,5 +50,9 @@ void PrintShortestPath(int s,int d) {
             }
         }
     }
-    printf("%d",dist[i][j]);
+    if(dist[s][d]==0){
+        printf("%d\n",-1);
+    }else{
+        printf("%d\n",dist[s][d]);
+    }
 }
