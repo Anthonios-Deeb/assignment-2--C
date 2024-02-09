@@ -16,9 +16,8 @@ int main(){
         scanf("%d",&weights[i]);
     }
 
-    
-   int sum =knapSack(weights,values,selected_bool);
 
+    int sum =knapSack(weights,values,selected_bool);
     int k=0;
     for(int i=0;i<N;i++){
         if(selected_bool[i]==1){
@@ -32,7 +31,8 @@ int main(){
     for (int i = 0; i < k; i++){
         printf(" %c",result[i]);
     }
-    
+    printf("\n");
+
     return 0;
 }
 
