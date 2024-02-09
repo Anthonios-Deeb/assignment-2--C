@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include "my_mat.h"
-#define ROWS 10
-#define COLS 10
+
 int main(){
     char type;
     int i,j;
+
     scanf("%c",&type);
     while (type!='D')
     {
