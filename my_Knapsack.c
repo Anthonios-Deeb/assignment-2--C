@@ -27,8 +27,7 @@ int main(){
         }
     }
 
-    printf("Maximum profit: ");
-    printf("%d\n",sum);
+    printf("Maximum profit: %d\n",sum);
     printf("Selected items:");
     for (int i = 0; i < k; i++){
         printf(" %c",result[i]);
